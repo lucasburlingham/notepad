@@ -21,8 +21,11 @@
 
 	document.querySelector("body").addEventListener("input", function () {
 		data = document.querySelector("body").innerHTML;
+		if (data.includes("<br>Start typing!")) {
+			data.replace("<br>Start typing!", "");	
+		}
 		localStorage.setItem("notepad_data", data);
-
+		
 		if (data.includes("/reset") || data.includes("/clear")) {
 			resetNotepad();
 		}
