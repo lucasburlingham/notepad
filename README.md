@@ -20,3 +20,5 @@ It is still a single HTML page though, with no outside dependancies.
 - `CTRL+s` saves the document to your hard drive
 - `CTRL+p` opens the print dialog so you can save it as a PDF or print to a physical printer
   
+
+Thanks [mottaquikarim](https://github.com/mottaquikarim) for the inspiration and boilerplate.
