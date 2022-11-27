@@ -23,6 +23,6 @@ It is still a single HTML page though, with no outside dependancies.
 
 Thanks [mottaquikarim](https://github.com/mottaquikarim) for the inspiration and boilerplate.
 
-Hosted on [Netlify](https://netlify.com) 
+*Hosted on [Netlify](https://netlify.com)*
   
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/c4360102-d0c2-4a17-9f8a-d37f33fa668b/deploy-status)](https://app.netlify.com/sites/tabbywordeditor/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4360102-d0c2-4a17-9f8a-d37f33fa668b/deploy-status)](https://app.netlify.com/sites/tabbywordeditor/deploys)
