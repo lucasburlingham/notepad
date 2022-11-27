@@ -26,3 +26,10 @@ Thanks [mottaquikarim](https://github.com/mottaquikarim) for the inspiration and
 *Hosted on [Netlify](https://netlify.com)*
   
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c4360102-d0c2-4a17-9f8a-d37f33fa668b/deploy-status)](https://app.netlify.com/sites/tabbywordeditor/deploys)
+
+  
+  [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+  [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+  [![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
+  
+  [![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
