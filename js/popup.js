@@ -70,10 +70,8 @@ document.querySelector("body").addEventListener("input", function () {
 	}
 });
 
-document.setTimeout(() => {
-	localStorage.setItem("notepad_data", data);
-	saveData(data);
-}, 1000);
+// Save data every 1 second
+window.setInterval(saveData(data), 1000);
 
 document.addEventListener('beforeunload', function (e) {
 	localStorage.clear();
@@ -83,7 +81,7 @@ document.addEventListener('beforeunload', function (e) {
 
 
 var isCtrl = false;
-document.addEventListener('load', function () {
+document.addEventListener('DOMContentLoaded', function () {
 	document.body.addEventListener('keydown', function (e) {
 		if (e.keyCode == 17) {
 			e.preventDefault();
