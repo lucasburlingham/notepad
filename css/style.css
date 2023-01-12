@@ -1,11 +1,10 @@
 body {
 	padding-top: 10px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-html {
-	min-height: 30em;
-	min-width: 50em;
+	min-height: 20em;
+	min-width: 30em;
+	width: 20em;
+	height: 30em;
 }
 
 @keyframes spinner-line-fade-more {

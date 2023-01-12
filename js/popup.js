@@ -28,7 +28,7 @@ var opts = {
 };
 
 var target = document.getElementById('spinner');
-var spinner = new Spinner(opts).spin(target);
+var spinner = new Spinner(opts);
 
 
 if (localStorage.getItem("notepad_data")) {
@@ -70,8 +70,17 @@ document.querySelector("body").addEventListener("input", function () {
 	}
 });
 
-// Save data every 1 second
-window.setInterval(saveData(data), 1000);
+// Save data every 2 seconds
+window.setInterval(function () {
+	chrome.storage.sync.set({
+		"notepad_data": data
+	}, function () {
+		console.info("Saved data to Google extension sync");
+		spinner.spin(target);
+	});
+	localStorage.setItem("notepad_data", data);
+}, 2000);
+
 
 document.addEventListener('beforeunload', function (e) {
 	localStorage.clear();
@@ -130,6 +139,7 @@ function resetNotepad() {
 	console.info("Resetting notepad");
 	localStorage.clear();
 	document.body.innerHTML = "";
+	chrome.storage.sync.clear();
 }
 
 
@@ -138,12 +148,11 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 });
 
 function saveData(data) {
-	chrome.runtime.sync.set({
+	chrome.storage.sync.set({
 		"notepad_data": data
 	}, function () {
 		console.info("Saved data to Google extension sync");
-		spinner.spin();
-		localStorage.setItem("notepad_data", data);
+		spinner.spin(target);
 	});
-
+	localStorage.setItem("notepad_data", data);
 }
