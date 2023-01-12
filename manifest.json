@@ -1,0 +1,12 @@
+{
+	"manifest_version": 3,
+	"name": "Notepad",
+	"description": "Quickly save notes to your browser and access them anywhere.",
+	"version": "1.0",
+	"action": {
+		"default_popup": "index.html"
+	},
+	"permissions": [
+		"storage"
+	]
+}

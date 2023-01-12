@@ -2,106 +2,17 @@
 
 <head>
 	<title>Notepad</title>
+	<script type="module" src="/js/spin.js"></script>
+	<script type="module" src="/js/popup.js"></script>
+	<link rel="stylesheet/css" href="/css/style.css">
 </head>
 
-<body contenteditable="true">
-
+<body contenteditable="true" id="spinner">
 </body>
 
-<script>
-
-	if (localStorage.getItem("notepad_data")) {
-		var data = localStorage.getItem("notepad_data");
-		console.info("Loaded data from localStorage");
-		document.querySelector("body").innerHTML = data;
-	} else {
-		var data = "<br>Start typing!";
-		document.querySelector("body").innerHTML = data;
-	}
-
-	document.querySelector("body").addEventListener("input", function () {
-		data = document.querySelector("body").innerHTML;
-		if (data.includes("<br>Start typing!")) {
-			data.replace("<br>Start typing!", "");	
-		}
-		localStorage.setItem("notepad_data", data);
-		
-		if (data.includes("/reset") || data.includes("/clear")) {
-			resetNotepad();
-		}
-		if (data.includes("/save")) {
-			save();
-		}
-		if (data.includes("/print")) {
-			data.replace("/print", "");
-			window.print();
-		}
-	});
-
-
-	window.addEventListener('beforeunload', function (e) {
-		localStorage.clear();
-		localStorage.setItem("notepad_data", data);
-	});
-
-
-	var isCtrl = false;
-	window.addEventListener('load', function () {
-		document.body.addEventListener('keydown', function (e) {
-			if (e.keyCode == 17) {
-				e.preventDefault();
-				isCtrl = true;
-			}
-			if (e.keyCode == 83 && isCtrl) {
-				e.preventDefault();
-				data.replace("/save", "");
-				data.replace("/reset", "");
-				data.replace("/print", "");
-				data.replace("/clear", "");
-				save(data, type, name);
-			}
-		});
-
-		document.body.addEventListener('keyup', function (e) {
-			e.preventDefault();
-			isCtrl = false;
-		});
-	});
 
 
 
-	var type = "text/html";
-	var name = "index.html";
 
-
-	function save(data, type, name) {
-		var blob = new Blob([data], { type });
-		var url = window.URL.createObjectURL(blob);
-		downloadURI(url, name);
-		window.URL.revokeObjectURL(url);
-	}
-
-	function downloadURI(uri, name) {
-		var link = document.createElement("a");
-		console.info("Downloading HTML content");
-		link.download = name;
-		link.href = uri;
-		link.click();
-	}
-
-	function resetNotepad() {
-		console.info("Resetting notepad");
-		localStorage.clear();
-		document.body.innerHTML = "";
-	}
-
-</script>
-
-<style id="style">
-	body {
-		padding-top: 10px;
-		font-family: Verdana, Geneva, Tahoma, sans-serif;
-	}
-</style>
 
 </html>
