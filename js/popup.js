@@ -145,5 +145,7 @@ function saveData(data) {
 	}, function () {
 		console.info("Saved data to Google extension sync");
 		spinner.spin();
-	})
+		localStorage.setItem("notepad_data", data);
+	});
+
 }
